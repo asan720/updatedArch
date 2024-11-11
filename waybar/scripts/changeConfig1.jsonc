@@ -1,0 +1,85 @@
+{
+	"layer": "down",
+	"modules-left": ["custom/music", "sway/workspaces", "mpd", "sway/mode"],
+	"modules-center": ["sway/window", "clock"],
+	"modules-right": ["network", "pulseaudio", "temperature", "cpu", "memory", "backlight", "battery", "tray"],
+	"mpd": {
+		"tooltip": false,
+		"format": "{stateIcon} {artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S})",
+		"format-disconnected": " disconected ",
+		"format-stopped": " stoped ",
+        "state-icons": {
+            "playing": "",
+            "paused": ""
+        }
+	},
+    "custom/music": {
+        "format": "{}",
+        "exec": "~/.config/waybar/scripts/music.sh",
+        "interval": 1,
+        "on-click": "playerctl play-pause"
+    },
+	"pulseaudio": {
+        "format": "[ {volume}% {icon} {format_source} ]",
+        "format-bluetooth": "[ {volume}% {icon} {format_source} ]",
+        "format-bluetooth-muted": "[  {icon} {format_source} ]",
+        "format-muted": " {format_source}",
+        "format-source": " {volume}% ",
+        "format-source-muted": "",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": [" ", " ", "  "]
+        },
+        "on-click": "pavucontrol"
+    },
+	"network": {
+		"tooltip": false,
+		"format-wifi": "[    {essid} {ipaddr} ]",
+		"format-ethernet": "[ {ipaddr}]"
+	},
+	"cpu": {
+		"tooltip": false,
+		"format": "[ {usage}%   ]"
+	},
+	"backlight": {
+        // "device": "acpi_video1",
+        "format": "[ {percent}% {icon} ]",
+        "format-icons": ["", "", "", "", "", "", "", "", ""]
+    },
+	"battery": {
+        "states": {
+            // "good": 95,
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "[ {capacity}% {icon}  ]",
+        "format-full": "[ {capacity}% {icon}  ]",
+        "format-charging": "[ {capacity}%   ]",
+        "format-plugged": "[ {capacity}%   ]",
+        "format-alt": "[ {time} {icon}  ]",
+        // "format-good": "", // An empty format will hide the module
+        // "format-full": "",
+        "format-icons": ["", "", "", "", ""]
+    },
+    "battery#bat2": {
+        "bat": "BAT2"
+    },
+    "tray": {
+        "spacing": 10
+    },
+	"memory": {
+		"tooltip": false,
+		"format": "[ {}%    ]"
+	},
+	"clock": {
+        	// "timezone": "America/New_York",
+        	"tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        	"format-alt": "[ {:%Y-%m-%d} ]",
+		"format": "[ {:%H:%M} ]"
+	}
+}
