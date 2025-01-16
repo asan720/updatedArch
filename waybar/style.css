@@ -1,6 +1,6 @@
 * {
-	border: none;
-	border-radius: 0;
+	border: #fff;
+	border-radius: 10;
 	min-height: 0;
 	margin: 2;
 	padding: 0;
@@ -31,6 +31,7 @@
   #window,
   #pulseaudio,
   #custom-updates,
+  #custom-music,
   #network {
 	padding: 3px 12px;
 	background-color: #303643;
@@ -48,8 +49,28 @@
   
   #custom-updates {
 	color: #1788e4;
+
   }
-  
+  #custom-music {
+	padding: 3px 12px;
+	background-color: #303643;
+	border-radius: 50px;
+	margin: 6px 4px;
+	color: #c678dd;
+	min-width: 1px;
+
+
+  }
+  #battery {
+	padding: 3px 12px;
+	background-color: #303643;	
+	border-radius: 50px;
+	margin: 6px 4px;
+	color: #fff;
+	min-width: 1px;
+}
+
+
   #custom-powermenu {
 	color: #e06c75;
 	padding-right: 11px;

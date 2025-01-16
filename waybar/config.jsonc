@@ -7,19 +7,26 @@
 	"hyprland/language",
         "hyprland/workspaces",
         "custom/updates",
-        "tray",
+        "tray"
         ],
       "modules-center": [
-        "hyprland/window",
+	"custom/music",
+        "hyprland/window"
         ],
       "modules-right": [
         "network",
         "pulseaudio",
 	"temperature",
         "memory",
-        "cpu", 
-        "custom/powermenu",
+        "cpu",
+	"battery"
       ],
+      "custom/music": {
+	"format": "{}",
+	"exec": "~/.config/waybar/scripts/show_music.sh",
+	"interval": 1,
+	"on-click": "playerctl play-pause"
+      },
       "tray": {
         "icon-size": 24,
         "spacing": 10
@@ -63,7 +70,7 @@
         "interface": "wlp4s0",
         "tooltip-format-ethernet": "{ifname} ",
         "interval": 2,
-        "format": " {bandwidthDownBits}  {bandwidthUpBits}",
+        "format": " {bandwidthDownBits}  {bandwidthUpBits} : {essid}",
       },
       "temperature": {
         "format": "{icon} {temperatureC}°C",
@@ -76,7 +83,7 @@
         "tooltip": "false"
       },
       "cpu": {
-        "format": " {usage}%",
+        "format": "  {usage}%",
         "tooltip": "false"
       },
       "custom/powermenu": {
@@ -90,8 +97,29 @@
         "interval": 3600,
         "exec": "exec $HOME/.config/waybar/checkupdate.sh"
       },
+      
+	"battery": {
+        "states": {
+            // "good": 95,
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{capacity}% {icon} ",
+        "format-full": "{capacity}% {icon} ",
+        "format-charging": "{capacity}% ",
+        "format-plugged": "{capacity}% ",
+        "format-alt": "{time} {icon} ",
+        // "format-good": "", // An empty format will hide the module
+        // "format-full": "",
+        "format-icons": ["", "", "", "", ""]
+    },
+    "battery#bat2": {
+        "bat": "BAT2"
+    },
+
+	
       "pulseaudio": {
-        "format": "{volume}% {icon}",
+        "format": "{volume}% {icon} ",
         "format-bluetooth": "{volume}% {icon}",
         "format-muted": "",
         "format-icons": {
